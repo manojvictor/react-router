@@ -19831,7 +19831,8 @@
 	        _reactRouter.Route,
 	        { component: _searchLayout2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _widgetList2.default })
-	      )
+	      ),
+	      '\u015B'
 	    )
 	  )
 	);
@@ -25012,7 +25013,7 @@
 	      _react2.default.createElement(
 	        "header",
 	        { className: "search-header" },
-	        "[Search Title]"
+	        "Title"
 	      ),
 	      _react2.default.createElement(
 	        "div",
@@ -25022,7 +25023,7 @@
 	      _react2.default.createElement(
 	        "footer",
 	        { className: "search-footer" },
-	        "[Total Results]"
+	        "Footer"
 	      )
 	    );
 	  }
@@ -25105,7 +25106,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/2' },
-	          'Michael'
+	          'User 1'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25114,7 +25115,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/1' },
-	          'Ryan'
+	          'User 2'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25123,7 +25124,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/3' },
-	          'Dan'
+	          'User 3'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25132,7 +25133,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/4' },
-	          'Matt'
+	          'User 4'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25141,7 +25142,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/5' },
-	          'Tobias'
+	          'User 5'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25150,7 +25151,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'users/6' },
-	          'Sebastian'
+	          'User 6'
 	        )
 	      )
 	    );

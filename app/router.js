@@ -6,10 +6,10 @@ import MainLayout from './components/main-layout';
 import SearchLayout from './components/search-layout';
 
 // Pages
-import Home from './components/home';
-import UserList from './components/user-list';
-import UserProfile from './components/user-profile';
-import WidgetList from './components/widget-list';
+import Home from './pages/home';
+import UserList from './pages/user-list';
+import UserProfile from './pages/user-profile';
+import WidgetList from './pages/widget-list';
 
 export default (
   <Router history={browserHistory}>
@@ -26,7 +26,7 @@ export default (
       <Route path="widgets">
         <Route component={SearchLayout}>
           <IndexRoute component={WidgetList} />
-        </Route>
+        </Route>ś
       </Route>
 
     </Route>
