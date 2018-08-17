@@ -22,3 +22,7 @@ If you want to edit the React code, you'll have to re-build the `public/js/bundl
 ```sh
 gulp watch
 ```
+
+Public API used, for reference
+
+https://jsonplaceholder.typicode.com/users

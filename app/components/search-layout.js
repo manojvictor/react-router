@@ -5,13 +5,13 @@ const SearchLayout = React.createClass({
     return (
       <div className="search">
         <header className="search-header">
-          Title
+          <b>Users</b>          
         </header>
         <div className="search-results">
           {this.props.children}
         </div>
         <footer className="search-footer">
-          Footer
+          <b>Footer</b>
         </footer>
       </div>
     );
