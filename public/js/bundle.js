@@ -19793,13 +19793,13 @@
 	
 	var _userList2 = _interopRequireDefault(_userList);
 	
-	var _userProfile = __webpack_require__(248);
+	var _userProfile = __webpack_require__(250);
 	
 	var _userProfile2 = _interopRequireDefault(_userProfile);
 	
-	var _widgetList = __webpack_require__(249);
+	var _widgets = __webpack_require__(251);
 	
-	var _widgetList2 = _interopRequireDefault(_widgetList);
+	var _widgets2 = _interopRequireDefault(_widgets);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -19830,7 +19830,7 @@
 	      _react2.default.createElement(
 	        _reactRouter.Route,
 	        { component: _searchLayout2.default },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _widgetList2.default })
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _widgets2.default })
 	      ),
 	      '\u015B'
 	    )
@@ -25097,9 +25097,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _persons = __webpack_require__(221);
+	var _users = __webpack_require__(221);
 	
-	var _persons2 = _interopRequireDefault(_persons);
+	var _users2 = _interopRequireDefault(_users);
+	
+	var _userAdd = __webpack_require__(248);
+	
+	var _userAdd2 = _interopRequireDefault(_userAdd);
+	
+	var _userDelete = __webpack_require__(249);
+	
+	var _userDelete2 = _interopRequireDefault(_userDelete);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -25107,7 +25115,12 @@
 	  displayName: 'UserList',
 	
 	  render: function render() {
-	    return _react2.default.createElement(_persons2.default, null);
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(_users2.default, null),
+	      _react2.default.createElement(_userAdd2.default, null)
+	    );
 	  }
 	});
 	
@@ -26746,6 +26759,200 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _axios = __webpack_require__(222);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UsersAdd = function (_React$Component) {
+		_inherits(UsersAdd, _React$Component);
+	
+		function UsersAdd() {
+			var _ref;
+	
+			var _temp, _this, _ret;
+	
+			_classCallCheck(this, UsersAdd);
+	
+			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+				args[_key] = arguments[_key];
+			}
+	
+			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = UsersAdd.__proto__ || Object.getPrototypeOf(UsersAdd)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+				name: ''
+	
+				// componentDidMount() {
+				// 	axios.get('https://jsonplaceholder.typicode.com/users')
+				// 	.then((result) => {
+				// 		console.log(result);
+				// 		this.setState({persons: result.data});
+				// 	})
+				// }
+	
+			}, _this.handleChange = function (event) {
+				_this.setState({
+					name: event.target.value
+				});
+			}, _this.handleSubmit = function (event) {
+				event.preventDefault();
+	
+				var user = {
+					name: _this.state.name
+				};
+	
+				_axios2.default.post('https://jsonplaceholder.typicode.com/users', { user: user }).then(function (res) {
+					console.log(res);
+					console.log(res.data);
+				});
+			}, _temp), _possibleConstructorReturn(_this, _ret);
+		}
+	
+		_createClass(UsersAdd, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'form',
+					{ onSubmit: this.handleSubmit },
+					_react2.default.createElement(
+						'label',
+						null,
+						'Add User: ',
+						_react2.default.createElement('input', { type: 'text', name: 'name', onChange: this.handleChange })
+					),
+					_react2.default.createElement(
+						'button',
+						{ type: 'submit' },
+						'Add'
+					)
+				);
+			}
+		}]);
+	
+		return UsersAdd;
+	}(_react2.default.Component);
+	
+	exports.default = UsersAdd;
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _axios = __webpack_require__(222);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UsersDelete = function (_React$Component) {
+		_inherits(UsersDelete, _React$Component);
+	
+		function UsersDelete() {
+			var _ref;
+	
+			var _temp, _this, _ret;
+	
+			_classCallCheck(this, UsersDelete);
+	
+			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+				args[_key] = arguments[_key];
+			}
+	
+			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = UsersDelete.__proto__ || Object.getPrototypeOf(UsersDelete)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+				id: 0
+	
+				// componentDidMount() {
+				// 	axios.get('https://jsonplaceholder.typicode.com/users')
+				// 	.then((result) => {
+				// 		console.log(result);
+				// 		this.setState({persons: result.data});
+				// 	})
+				// }
+	
+			}, _this.handleChange = function (event) {
+				_this.setState({
+					id: event.target.value
+				});
+			}, _this.handleSubmit = function (event) {
+				event.preventDefault();
+	
+				var id = {
+					id: _this.state.name
+				};
+	
+				_axios2.default.delete('https://jsonplaceholder.typicode.com/posts/id', { id: id }).then(function (res) {
+					console.log(res);
+					console.log(res.data);
+				});
+			}, _temp), _possibleConstructorReturn(_this, _ret);
+		}
+	
+		_createClass(UsersDelete, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'form',
+					{ onSubmit: this.handleSubmit },
+					_react2.default.createElement(
+						'label',
+						null,
+						'Delete by ID: ',
+						_react2.default.createElement('input', { type: 'number', name: 'name', onChange: this.handleChange })
+					),
+					_react2.default.createElement(
+						'button',
+						{ type: 'submit' },
+						'Delete'
+					)
+				);
+			}
+		}]);
+	
+		return UsersDelete;
+	}(_react2.default.Component);
+	
+	exports.default = UsersDelete;
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
@@ -26771,7 +26978,7 @@
 	exports.default = UserProfile;
 
 /***/ }),
-/* 249 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26786,8 +26993,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var WidgetList = _react2.default.createClass({
-	  displayName: "WidgetList",
+	var Widgets = _react2.default.createClass({
+	  displayName: "Widgets",
 	
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -26812,7 +27019,7 @@
 	  }
 	});
 	
-	exports.default = WidgetList;
+	exports.default = Widgets;
 
 /***/ })
 /******/ ]);

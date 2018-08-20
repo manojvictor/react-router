@@ -9,7 +9,7 @@ import SearchLayout from './components/search-layout';
 import Home from './pages/home';
 import UserList from './pages/user-list';
 import UserProfile from './pages/user-profile';
-import WidgetList from './pages/widget-list';
+import Widgets from './pages/widgets';
 
 export default (
   <Router history={browserHistory}>
@@ -25,7 +25,7 @@ export default (
 
       <Route path="widgets">
         <Route component={SearchLayout}>
-          <IndexRoute component={WidgetList} />
+          <IndexRoute component={Widgets} />
         </Route>ś
       </Route>
 

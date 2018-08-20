@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WidgetList = React.createClass({
+const Widgets = React.createClass({
   render: function() {
     return (
       <ul className="widget-list">
@@ -12,4 +12,4 @@ const WidgetList = React.createClass({
   }
 });
 
-export default WidgetList;
+export default Widgets;
